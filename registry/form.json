@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "form",
+  "type": "registry:block",
+  "title": "Fleek UI form snippets",
+  "description": "Form — labels, inputs, textarea, error + helper text",
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/fleekdash/fleek-ui/main/registry/fleek-ui.json"
+  ],
+  "files": [
+    {
+      "path": "snippets/form.html",
+      "content": "<!-- Fleek UI snippet: form fields.\n     fui-input carries border + focus ring (field-focus-ring tokens);\n     aria-invalid flips it to the destructive ring. Labels use token\n     typography only. -->\n\n<div class=\"flex flex-col gap-1.5\">\n  <label class=\"text-foreground text-sm font-medium\" for=\"title\">Title</label>\n  <input\n    id=\"title\"\n    name=\"title\"\n    type=\"text\"\n    class=\"fui-input\"\n    placeholder=\"Hello world\"\n    required />\n  <p class=\"text-muted-foreground text-xs\">Shown on the item card.</p>\n</div>\n\n<div class=\"flex flex-col gap-1.5\">\n  <label class=\"text-foreground text-sm font-medium\" for=\"notes\">Notes</label>\n  <textarea\n    id=\"notes\"\n    name=\"notes\"\n    class=\"fui-input h-auto resize-y py-2\"\n    rows=\"3\"></textarea>\n</div>\n\n<!-- Invalid state: server or Alpine sets aria-invalid=\"true\" -->\n<div class=\"flex flex-col gap-1.5\">\n  <label class=\"text-destructive text-sm font-medium\" for=\"email\">Email</label>\n  <input\n    id=\"email\"\n    name=\"email\"\n    type=\"email\"\n    class=\"fui-input\"\n    aria-invalid=\"true\" />\n  <p class=\"text-destructive text-xs\" role=\"alert\">Enter a valid email.</p>\n</div>\n\n<!-- Field grid -->\n<div class=\"grid grid-cols-2 gap-3\">\n  <div class=\"flex flex-col gap-1.5\">\n    <label class=\"text-sm font-medium\" for=\"from\">From</label>\n    <input id=\"from\" type=\"date\" class=\"fui-input\" />\n  </div>\n  <div class=\"flex flex-col gap-1.5\">\n    <label class=\"text-sm font-medium\" for=\"to\">To</label>\n    <input id=\"to\" type=\"date\" class=\"fui-input\" />\n  </div>\n</div>\n",
+      "type": "registry:file",
+      "target": "fleek-ui/snippets/form.html"
+    }
+  ]
+}

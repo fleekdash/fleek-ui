@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "card",
+  "type": "registry:block",
+  "title": "Fleek UI card snippets",
+  "description": "Card — header/body/footer composition",
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/fleekdash/fleek-ui/main/registry/fleek-ui.json"
+  ],
+  "files": [
+    {
+      "path": "snippets/card.html",
+      "content": "<!-- Fleek UI snippet: cards, badges, alerts, empty/skeleton states. -->\n\n<!-- Card -->\n<div class=\"fui-card\">\n  <div class=\"fui-card-header\">Usage</div>\n  <div class=\"fui-card-body flex flex-col gap-2\">\n    <p class=\"text-muted-foreground text-sm\">Card body content.</p>\n  </div>\n  <div class=\"fui-card-footer flex items-center justify-end gap-2\">\n    <button type=\"button\" class=\"fui-btn fui-btn-ghost fui-btn-sm\">\n      Dismiss\n    </button>\n    <button type=\"button\" class=\"fui-btn fui-btn-primary fui-btn-sm\">\n      Apply\n    </button>\n  </div>\n</div>\n\n<!-- Flat list row (same fui-card, composed) -->\n<ul class=\"flex flex-col gap-2\">\n  <li class=\"fui-card flex items-center gap-2.5 px-3 py-2.5\">\n    <span class=\"flex-1 break-words\">Row label</span>\n    <span class=\"fui-badge fui-badge-success\">Active</span>\n  </li>\n</ul>\n\n<!-- Badges -->\n<span class=\"fui-badge fui-badge-primary\">Beta</span>\n<span class=\"fui-badge fui-badge-success\">Active</span>\n<span class=\"fui-badge fui-badge-warning\">Pending</span>\n<span class=\"fui-badge fui-badge-danger\">Failed</span>\n<span class=\"fui-badge fui-badge-muted\">Draft</span>\n\n<!-- Alert surface (matches the pack's error region) -->\n<div\n  class=\"border-destructive/30 bg-destructive/10 text-destructive rounded-md border px-3 py-2 text-sm\"\n  role=\"alert\">\n  Could not save your change - please try again.\n</div>\n<div\n  class=\"border-primary/30 bg-primary/10 text-primary rounded-md border px-3 py-2 text-sm\"\n  role=\"status\">\n  Settings saved.\n</div>\n\n<!-- Empty state -->\n<div\n  class=\"border-border bg-card text-muted-foreground rounded-lg border border-dashed p-6 text-center text-sm\">\n  No notes yet - add the first one below.\n</div>\n\n<!-- Loading skeleton: compose fui-skeleton with animate-pulse or\n     animate-shimmer; skeleton surface follows card/popover contexts. -->\n<div class=\"fui-card flex flex-col gap-2 p-3\" aria-hidden=\"true\">\n  <div class=\"fui-skeleton h-4 w-2/3 animate-pulse\"></div>\n  <div class=\"fui-skeleton h-4 w-full animate-pulse\"></div>\n  <div class=\"fui-skeleton h-8 w-24 animate-pulse rounded-full\"></div>\n</div>\n",
+      "type": "registry:file",
+      "target": "fleek-ui/snippets/card.html"
+    }
+  ]
+}

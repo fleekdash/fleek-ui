@@ -1,0 +1,33 @@
+<!-- Fleek UI snippet: buttons.
+     Contract: wrap your app root in class="fleek-ui"; never hardcode hex;
+     compose fui-btn + a variant class; sizes via fui-btn-sm / fui-btn-lg. -->
+
+<button type="button" class="fui-btn fui-btn-primary">Save</button>
+<button type="button" class="fui-btn fui-btn-secondary">Draft</button>
+<button type="button" class="fui-btn fui-btn-outline">Cancel</button>
+<button type="button" class="fui-btn fui-btn-ghost">More</button>
+<button type="button" class="fui-btn fui-btn-destructive">Delete</button>
+<button type="button" class="fui-btn fui-btn-link">View all</button>
+
+<!-- Sizes + states -->
+<button type="button" class="fui-btn fui-btn-primary fui-btn-sm">Small</button>
+<button type="button" class="fui-btn fui-btn-primary fui-btn-lg">Large</button>
+<button type="button" class="fui-btn fui-btn-primary" disabled>Saving…</button>
+
+<!-- Icon button (any inline svg/icon font inside) -->
+<button
+  type="button"
+  class="fui-btn fui-btn-ghost h-7 w-7 p-0"
+  aria-label="Close">
+  &times;
+</button>
+
+<!-- Busy state with htmx -->
+<button
+  type="button"
+  class="fui-btn fui-btn-primary"
+  hx-post="/wp-json/mypack/v1/save"
+  hx-swap="none">
+  <span class="htmx-indicator">Saving…</span>
+  <span class="htmx-indicator-hide">Save</span>
+</button>

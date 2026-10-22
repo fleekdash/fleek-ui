@@ -1,0 +1,18 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "button",
+  "type": "registry:block",
+  "title": "Fleek UI button snippets",
+  "description": "Buttons — variants, sizes, icon buttons, htmx busy state",
+  "registryDependencies": [
+    "https://raw.githubusercontent.com/fleekdash/fleek-ui/main/registry/fleek-ui.json"
+  ],
+  "files": [
+    {
+      "path": "snippets/button.html",
+      "content": "<!-- Fleek UI snippet: buttons.\n     Contract: wrap your app root in class=\"fleek-ui\"; never hardcode hex;\n     compose fui-btn + a variant class; sizes via fui-btn-sm / fui-btn-lg. -->\n\n<button type=\"button\" class=\"fui-btn fui-btn-primary\">Save</button>\n<button type=\"button\" class=\"fui-btn fui-btn-secondary\">Draft</button>\n<button type=\"button\" class=\"fui-btn fui-btn-outline\">Cancel</button>\n<button type=\"button\" class=\"fui-btn fui-btn-ghost\">More</button>\n<button type=\"button\" class=\"fui-btn fui-btn-destructive\">Delete</button>\n<button type=\"button\" class=\"fui-btn fui-btn-link\">View all</button>\n\n<!-- Sizes + states -->\n<button type=\"button\" class=\"fui-btn fui-btn-primary fui-btn-sm\">Small</button>\n<button type=\"button\" class=\"fui-btn fui-btn-primary fui-btn-lg\">Large</button>\n<button type=\"button\" class=\"fui-btn fui-btn-primary\" disabled>Saving…</button>\n\n<!-- Icon button (any inline svg/icon font inside) -->\n<button\n  type=\"button\"\n  class=\"fui-btn fui-btn-ghost h-7 w-7 p-0\"\n  aria-label=\"Close\">\n  &times;\n</button>\n\n<!-- Busy state with htmx -->\n<button\n  type=\"button\"\n  class=\"fui-btn fui-btn-primary\"\n  hx-post=\"/wp-json/mypack/v1/save\"\n  hx-swap=\"none\">\n  <span class=\"htmx-indicator\">Saving…</span>\n  <span class=\"htmx-indicator-hide\">Save</span>\n</button>\n",
+      "type": "registry:file",
+      "target": "fleek-ui/snippets/button.html"
+    }
+  ]
+}

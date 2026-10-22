@@ -1,0 +1,58 @@
+<!-- Fleek UI snippet: cards, badges, alerts, empty/skeleton states. -->
+
+<!-- Card -->
+<div class="fui-card">
+  <div class="fui-card-header">Usage</div>
+  <div class="fui-card-body flex flex-col gap-2">
+    <p class="text-muted-foreground text-sm">Card body content.</p>
+  </div>
+  <div class="fui-card-footer flex items-center justify-end gap-2">
+    <button type="button" class="fui-btn fui-btn-ghost fui-btn-sm">
+      Dismiss
+    </button>
+    <button type="button" class="fui-btn fui-btn-primary fui-btn-sm">
+      Apply
+    </button>
+  </div>
+</div>
+
+<!-- Flat list row (same fui-card, composed) -->
+<ul class="flex flex-col gap-2">
+  <li class="fui-card flex items-center gap-2.5 px-3 py-2.5">
+    <span class="flex-1 break-words">Row label</span>
+    <span class="fui-badge fui-badge-success">Active</span>
+  </li>
+</ul>
+
+<!-- Badges -->
+<span class="fui-badge fui-badge-primary">Beta</span>
+<span class="fui-badge fui-badge-success">Active</span>
+<span class="fui-badge fui-badge-warning">Pending</span>
+<span class="fui-badge fui-badge-danger">Failed</span>
+<span class="fui-badge fui-badge-muted">Draft</span>
+
+<!-- Alert surface (matches the pack's error region) -->
+<div
+  class="border-destructive/30 bg-destructive/10 text-destructive rounded-md border px-3 py-2 text-sm"
+  role="alert">
+  Could not save your change - please try again.
+</div>
+<div
+  class="border-primary/30 bg-primary/10 text-primary rounded-md border px-3 py-2 text-sm"
+  role="status">
+  Settings saved.
+</div>
+
+<!-- Empty state -->
+<div
+  class="border-border bg-card text-muted-foreground rounded-lg border border-dashed p-6 text-center text-sm">
+  No notes yet - add the first one below.
+</div>
+
+<!-- Loading skeleton: compose fui-skeleton with animate-pulse or
+     animate-shimmer; skeleton surface follows card/popover contexts. -->
+<div class="fui-card flex flex-col gap-2 p-3" aria-hidden="true">
+  <div class="fui-skeleton h-4 w-2/3 animate-pulse"></div>
+  <div class="fui-skeleton h-4 w-full animate-pulse"></div>
+  <div class="fui-skeleton h-8 w-24 animate-pulse rounded-full"></div>
+</div>
