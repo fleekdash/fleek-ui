@@ -1,0 +1,6 @@
+import{j as t}from"./iframe-B4ogevxn.js";import{I as n}from"./Input-Cwsr2Og7.js";import{L as s}from"./index-B5kstgz-.js";import"./preload-helper-Dp1pzeXC.js";import"./menu-trigger-chevron-Q4kmR1jM.js";import"./instant-translate-pibj5xTz.js";import"./field-focus-APfXAL04.js";import"./index-BFlTwmna.js";import"./index-91As92z0.js";import"./index-DsJnMvtX.js";import"./index-DIXRwbkp.js";import"./index-BK6SfLHh.js";import"./index-q2t2gBUy.js";import"./index-yfKPQT7J.js";const f={title:"Components/Inputs/Label (organism)",component:s,parameters:{layout:"centered",docs:{description:{component:"Radix label — organism build with the same contract as the atom; paired here with the organism Input."}}},tags:["autodocs"],args:{children:"Widget title"}},r={render:i=>t.jsxs("div",{className:"w-72 space-y-2",children:[t.jsx(n,{id:"org-label-input",placeholder:"Monthly revenue"}),t.jsx(s,{...i,htmlFor:"org-label-input"})]})},w=["WithInput"];var e,o,a;r.parameters={...r.parameters,docs:{...(e=r.parameters)==null?void 0:e.docs,source:{originalSource:`{
+  render: args => <div className="w-72 space-y-2">\r
+      <Input id="org-label-input" placeholder="Monthly revenue" />\r
+      <Label {...args} htmlFor="org-label-input" />\r
+    </div>
+}`,...(a=(o=r.parameters)==null?void 0:o.docs)==null?void 0:a.source}}};export{r as WithInput,w as __namedExportsOrder,f as default};

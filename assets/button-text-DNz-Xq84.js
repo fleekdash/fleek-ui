@@ -1,0 +1,1 @@
+import{i as t}from"./instant-translate-pibj5xTz.js";import"./iframe-B4ogevxn.js";function r(){return t("Loading...")}function u(){return t("Success!")}function o(){return t("Error!")}function a(){return t("Request timeout")}function i(){return t("Try again")}export{i as a,u as b,o as c,a as d,r as g};
