@@ -1,0 +1,127 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "fleek",
+  "homepage": "https://fleekdash.com",
+  "items": [
+    {
+      "name": "fleek-ui",
+      "type": "registry:item",
+      "title": "Fleek UI stylesheet",
+      "description": "Tokens + Tailwind utilities + fui-* primitives. Wrap your app root in .fleek-ui; starter theme ships as :root/.dark defaults and hosts override via [data-theme] or --palette-* hooks."
+    },
+    {
+      "name": "snippet-button",
+      "type": "registry:item",
+      "title": "Fleek UI button snippets",
+      "description": "Buttons — variants, sizes, icon buttons, htmx busy state"
+    },
+    {
+      "name": "snippet-card",
+      "type": "registry:item",
+      "title": "Fleek UI card snippets",
+      "description": "Card — header/body/footer composition"
+    },
+    {
+      "name": "snippet-form",
+      "type": "registry:item",
+      "title": "Fleek UI form snippets",
+      "description": "Form — labels, inputs, textarea, error + helper text"
+    },
+    {
+      "name": "snippet-overlays",
+      "type": "registry:item",
+      "title": "Fleek UI overlays snippets",
+      "description": "Overlays — Alpine dropdown, modal, tooltip (x-data blocks)"
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "title": "Fleek UI alert",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/molecules/Alert/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "title": "Fleek UI badge",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/atoms/Badge/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "title": "Fleek UI button",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/organisms/Button/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "title": "Fleek UI checkbox",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/atoms/Checkbox/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "title": "Fleek UI dropdown-menu",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/molecules/DropdownMenu/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "icon",
+      "type": "registry:ui",
+      "title": "Fleek UI icon",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/atoms/Icon/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "title": "Fleek UI input",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/organisms/Input/index.ts. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "title": "Fleek UI popover",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/molecules/Popover/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "title": "Fleek UI separator",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/atoms/Separator/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "title": "Fleek UI skeleton",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/atoms/Skeleton/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "title": "Fleek UI spinner",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/atoms/Spinner/index.ts. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "title": "Fleek UI switch",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/molecules/Switch/index.ts. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "title": "Fleek UI tabs",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/molecules/Tabs/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "title": "Fleek UI textarea",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/organisms/Textarea/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "title": "Fleek UI tooltip",
+      "description": "React component (Radix + Tailwind + theme tokens). Files land under fleek-ui/ preserving the package tree; import the entry from fleek-ui/molecules/Tooltip/index.tsx. Expects the standard shadcn CSS vars — pair with @fleek/fleek-ui for FleekDash themes."
+    }
+  ]
+}

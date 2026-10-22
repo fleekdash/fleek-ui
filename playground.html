@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fleek UI - snippet playground</title>
+<link rel="stylesheet" href="css/fleek-ui.css">
+<script defer src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.15.0/dist/cdn.min.js"></script>
+</head>
+<body class="fleek-ui">
+<main class="mx-auto max-w-3xl p-8">
+  <h1 class="text-2xl font-semibold mb-2">Fleek UI playground</h1>
+  <p class="text-muted-foreground mb-8">
+    Buildless tier live demos - Alpine.js + htmx snippets on top of
+    <code>fleek-ui.css</code>. React component previews live in
+    <a class="text-primary underline" href="./">the Storybook docs</a>.
+    Toggle <code>.dark</code> on <code>&lt;html&gt;</code> to preview dark mode.
+  </p>
+  <button class="fui-btn fui-btn-outline mb-8" type="button"
+    onclick="document.documentElement.classList.toggle('dark')">
+    Toggle dark
+  </button>
+  <section class="fui-card p-6 mb-8">
+    <h2 class="text-xl font-semibold mb-1 capitalize">button</h2>
+    <p class="text-sm text-muted-foreground mb-4">
+      Live demo below; copy-paste source at the bottom.
+      <a class="text-primary underline"
+         href="https://github.com/fleekdash/fleek-ui/blob/main/snippets/button.html">snippets/button.html</a>
+    </p>
+    <div class="rounded-lg border border-dashed border-border p-6">
+<!-- Fleek UI snippet: buttons.
+     Contract: wrap your app root in class="fleek-ui"; never hardcode hex;
+     compose fui-btn + a variant class; sizes via fui-btn-sm / fui-btn-lg. -->
+
+<button type="button" class="fui-btn fui-btn-primary">Save</button>
+<button type="button" class="fui-btn fui-btn-secondary">Draft</button>
+<button type="button" class="fui-btn fui-btn-outline">Cancel</button>
+<button type="button" class="fui-btn fui-btn-ghost">More</button>
+<button type="button" class="fui-btn fui-btn-destructive">Delete</button>
+<button type="button" class="fui-btn fui-btn-link">View all</button>
+
+<!-- Sizes + states -->
+<button type="button" class="fui-btn fui-btn-primary fui-btn-sm">Small</button>
+<button type="button" class="fui-btn fui-btn-primary fui-btn-lg">Large</button>
+<button type="button" class="fui-btn fui-btn-primary" disabled>Saving…</button>
+
+<!-- Icon button (any inline svg/icon font inside) -->
+<button
+  type="button"
+  class="fui-btn fui-btn-ghost h-7 w-7 p-0"
+  aria-label="Close">
+  &times;
+</button>
+
+<!-- Busy state with htmx -->
+<button
+  type="button"
+  class="fui-btn fui-btn-primary"
+  hx-post="/wp-json/mypack/v1/save"
+  hx-swap="none">
+  <span class="htmx-indicator">Saving…</span>
+  <span class="htmx-indicator-hide">Save</span>
+</button>
+    </div>
+    <details class="mt-4">
+      <summary class="text-sm text-muted-foreground cursor-pointer">Source</summary>
+      <pre class="mt-2 text-xs overflow-auto rounded-lg bg-muted p-4"><code>&lt;!-- Fleek UI snippet: buttons.
+     Contract: wrap your app root in class="fleek-ui"; never hardcode hex;
+     compose fui-btn + a variant class; sizes via fui-btn-sm / fui-btn-lg. --&gt;
+
+&lt;button type="button" class="fui-btn fui-btn-primary"&gt;Save&lt;/button&gt;
+&lt;button type="button" class="fui-btn fui-btn-secondary"&gt;Draft&lt;/button&gt;
+&lt;button type="button" class="fui-btn fui-btn-outline"&gt;Cancel&lt;/button&gt;
+&lt;button type="button" class="fui-btn fui-btn-ghost"&gt;More&lt;/button&gt;
+&lt;button type="button" class="fui-btn fui-btn-destructive"&gt;Delete&lt;/button&gt;
+&lt;button type="button" class="fui-btn fui-btn-link"&gt;View all&lt;/button&gt;
+
+&lt;!-- Sizes + states --&gt;
+&lt;button type="button" class="fui-btn fui-btn-primary fui-btn-sm"&gt;Small&lt;/button&gt;
+&lt;button type="button" class="fui-btn fui-btn-primary fui-btn-lg"&gt;Large&lt;/button&gt;
+&lt;button type="button" class="fui-btn fui-btn-primary" disabled&gt;Saving…&lt;/button&gt;
+
+&lt;!-- Icon button (any inline svg/icon font inside) --&gt;
+&lt;button
+  type="button"
+  class="fui-btn fui-btn-ghost h-7 w-7 p-0"
+  aria-label="Close"&gt;
+  &amp;times;
+&lt;/button&gt;
+
+&lt;!-- Busy state with htmx --&gt;
+&lt;button
+  type="button"
+  class="fui-btn fui-btn-primary"
+  hx-post="/wp-json/mypack/v1/save"
+  hx-swap="none"&gt;
+  &lt;span class="htmx-indicator"&gt;Saving…&lt;/span&gt;
+  &lt;span class="htmx-indicator-hide"&gt;Save&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+    </details>
+  </section>
+  <section class="fui-card p-6 mb-8">
+    <h2 class="text-xl font-semibold mb-1 capitalize">card</h2>
+    <p class="text-sm text-muted-foreground mb-4">
+      Live demo below; copy-paste source at the bottom.
+      <a class="text-primary underline"
+         href="https://github.com/fleekdash/fleek-ui/blob/main/snippets/card.html">snippets/card.html</a>
+    </p>
+    <div class="rounded-lg border border-dashed border-border p-6">
+<!-- Fleek UI snippet: cards, badges, alerts, empty/skeleton states. -->
+
+<!-- Card -->
+<div class="fui-card">
+  <div class="fui-card-header">Usage</div>
+  <div class="fui-card-body flex flex-col gap-2">
+    <p class="text-muted-foreground text-sm">Card body content.</p>
+  </div>
+  <div class="fui-card-footer flex items-center justify-end gap-2">
+    <button type="button" class="fui-btn fui-btn-ghost fui-btn-sm">
+      Dismiss
+    </button>
+    <button type="button" class="fui-btn fui-btn-primary fui-btn-sm">
+      Apply
+    </button>
+  </div>
+</div>
+
+<!-- Flat list row (same fui-card, composed) -->
+<ul class="flex flex-col gap-2">
+  <li class="fui-card flex items-center gap-2.5 px-3 py-2.5">
+    <span class="flex-1 break-words">Row label</span>
+    <span class="fui-badge fui-badge-success">Active</span>
+  </li>
+</ul>
+
+<!-- Badges -->
+<span class="fui-badge fui-badge-primary">Beta</span>
+<span class="fui-badge fui-badge-success">Active</span>
+<span class="fui-badge fui-badge-warning">Pending</span>
+<span class="fui-badge fui-badge-danger">Failed</span>
+<span class="fui-badge fui-badge-muted">Draft</span>
+
+<!-- Alert surface (matches the pack's error region) -->
+<div
+  class="border-destructive/30 bg-destructive/10 text-destructive rounded-md border px-3 py-2 text-sm"
+  role="alert">
+  Could not save your change - please try again.
+</div>
+<div
+  class="border-primary/30 bg-primary/10 text-primary rounded-md border px-3 py-2 text-sm"
+  role="status">
+  Settings saved.
+</div>
+
+<!-- Empty state -->
+<div
+  class="border-border bg-card text-muted-foreground rounded-lg border border-dashed p-6 text-center text-sm">
+  No notes yet - add the first one below.
+</div>
+
+<!-- Loading skeleton: compose fui-skeleton with animate-pulse or
+     animate-shimmer; skeleton surface follows card/popover contexts. -->
+<div class="fui-card flex flex-col gap-2 p-3" aria-hidden="true">
+  <div class="fui-skeleton h-4 w-2/3 animate-pulse"></div>
+  <div class="fui-skeleton h-4 w-full animate-pulse"></div>
+  <div class="fui-skeleton h-8 w-24 animate-pulse rounded-full"></div>
+</div>
+    </div>
+    <details class="mt-4">
+      <summary class="text-sm text-muted-foreground cursor-pointer">Source</summary>
+      <pre class="mt-2 text-xs overflow-auto rounded-lg bg-muted p-4"><code>&lt;!-- Fleek UI snippet: cards, badges, alerts, empty/skeleton states. --&gt;
+
+&lt;!-- Card --&gt;
+&lt;div class="fui-card"&gt;
+  &lt;div class="fui-card-header"&gt;Usage&lt;/div&gt;
+  &lt;div class="fui-card-body flex flex-col gap-2"&gt;
+    &lt;p class="text-muted-foreground text-sm"&gt;Card body content.&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div class="fui-card-footer flex items-center justify-end gap-2"&gt;
+    &lt;button type="button" class="fui-btn fui-btn-ghost fui-btn-sm"&gt;
+      Dismiss
+    &lt;/button&gt;
+    &lt;button type="button" class="fui-btn fui-btn-primary fui-btn-sm"&gt;
+      Apply
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Flat list row (same fui-card, composed) --&gt;
+&lt;ul class="flex flex-col gap-2"&gt;
+  &lt;li class="fui-card flex items-center gap-2.5 px-3 py-2.5"&gt;
+    &lt;span class="flex-1 break-words"&gt;Row label&lt;/span&gt;
+    &lt;span class="fui-badge fui-badge-success"&gt;Active&lt;/span&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;!-- Badges --&gt;
+&lt;span class="fui-badge fui-badge-primary"&gt;Beta&lt;/span&gt;
+&lt;span class="fui-badge fui-badge-success"&gt;Active&lt;/span&gt;
+&lt;span class="fui-badge fui-badge-warning"&gt;Pending&lt;/span&gt;
+&lt;span class="fui-badge fui-badge-danger"&gt;Failed&lt;/span&gt;
+&lt;span class="fui-badge fui-badge-muted"&gt;Draft&lt;/span&gt;
+
+&lt;!-- Alert surface (matches the pack's error region) --&gt;
+&lt;div
+  class="border-destructive/30 bg-destructive/10 text-destructive rounded-md border px-3 py-2 text-sm"
+  role="alert"&gt;
+  Could not save your change - please try again.
+&lt;/div&gt;
+&lt;div
+  class="border-primary/30 bg-primary/10 text-primary rounded-md border px-3 py-2 text-sm"
+  role="status"&gt;
+  Settings saved.
+&lt;/div&gt;
+
+&lt;!-- Empty state --&gt;
+&lt;div
+  class="border-border bg-card text-muted-foreground rounded-lg border border-dashed p-6 text-center text-sm"&gt;
+  No notes yet - add the first one below.
+&lt;/div&gt;
+
+&lt;!-- Loading skeleton: compose fui-skeleton with animate-pulse or
+     animate-shimmer; skeleton surface follows card/popover contexts. --&gt;
+&lt;div class="fui-card flex flex-col gap-2 p-3" aria-hidden="true"&gt;
+  &lt;div class="fui-skeleton h-4 w-2/3 animate-pulse"&gt;&lt;/div&gt;
+  &lt;div class="fui-skeleton h-4 w-full animate-pulse"&gt;&lt;/div&gt;
+  &lt;div class="fui-skeleton h-8 w-24 animate-pulse rounded-full"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+  <section class="fui-card p-6 mb-8">
+    <h2 class="text-xl font-semibold mb-1 capitalize">form</h2>
+    <p class="text-sm text-muted-foreground mb-4">
+      Live demo below; copy-paste source at the bottom.
+      <a class="text-primary underline"
+         href="https://github.com/fleekdash/fleek-ui/blob/main/snippets/form.html">snippets/form.html</a>
+    </p>
+    <div class="rounded-lg border border-dashed border-border p-6">
+<!-- Fleek UI snippet: form fields.
+     fui-input IS the design-system input for the markup tier (raw-input:ok
+     — the React <Input> contract does not exist outside JSX): it carries
+     border + focus ring (field-focus-ring tokens); aria-invalid flips it
+     to the destructive ring. Labels use token typography only. -->
+
+<div class="flex flex-col gap-1.5">
+  <label class="text-foreground text-sm font-medium" for="title">Title</label>
+  <input
+    id="title"
+    name="title"
+    type="text"
+    class="fui-input"
+    placeholder="Hello world"
+    required />
+  <p class="text-muted-foreground text-xs">Shown on the item card.</p>
+</div>
+
+<div class="flex flex-col gap-1.5">
+  <label class="text-foreground text-sm font-medium" for="notes">Notes</label>
+  <textarea
+    id="notes"
+    name="notes"
+    class="fui-input h-auto resize-y py-2"
+    rows="3"></textarea>
+</div>
+
+<!-- Invalid state: server or Alpine sets aria-invalid="true" -->
+<div class="flex flex-col gap-1.5">
+  <label class="text-destructive text-sm font-medium" for="email">Email</label>
+  <input
+    id="email"
+    name="email"
+    type="email"
+    class="fui-input"
+    aria-invalid="true" />
+  <p class="text-destructive text-xs" role="alert">Enter a valid email.</p>
+</div>
+
+<!-- Field grid -->
+<div class="grid grid-cols-2 gap-3">
+  <div class="flex flex-col gap-1.5">
+    <label class="text-sm font-medium" for="from">From</label>
+    <input id="from" type="date" class="fui-input" />
+  </div>
+  <div class="flex flex-col gap-1.5">
+    <label class="text-sm font-medium" for="to">To</label>
+    <input id="to" type="date" class="fui-input" />
+  </div>
+</div>
+    </div>
+    <details class="mt-4">
+      <summary class="text-sm text-muted-foreground cursor-pointer">Source</summary>
+      <pre class="mt-2 text-xs overflow-auto rounded-lg bg-muted p-4"><code>&lt;!-- Fleek UI snippet: form fields.
+     fui-input IS the design-system input for the markup tier (raw-input:ok
+     — the React &lt;Input&gt; contract does not exist outside JSX): it carries
+     border + focus ring (field-focus-ring tokens); aria-invalid flips it
+     to the destructive ring. Labels use token typography only. --&gt;
+
+&lt;div class="flex flex-col gap-1.5"&gt;
+  &lt;label class="text-foreground text-sm font-medium" for="title"&gt;Title&lt;/label&gt;
+  &lt;input
+    id="title"
+    name="title"
+    type="text"
+    class="fui-input"
+    placeholder="Hello world"
+    required /&gt;
+  &lt;p class="text-muted-foreground text-xs"&gt;Shown on the item card.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="flex flex-col gap-1.5"&gt;
+  &lt;label class="text-foreground text-sm font-medium" for="notes"&gt;Notes&lt;/label&gt;
+  &lt;textarea
+    id="notes"
+    name="notes"
+    class="fui-input h-auto resize-y py-2"
+    rows="3"&gt;&lt;/textarea&gt;
+&lt;/div&gt;
+
+&lt;!-- Invalid state: server or Alpine sets aria-invalid="true" --&gt;
+&lt;div class="flex flex-col gap-1.5"&gt;
+  &lt;label class="text-destructive text-sm font-medium" for="email"&gt;Email&lt;/label&gt;
+  &lt;input
+    id="email"
+    name="email"
+    type="email"
+    class="fui-input"
+    aria-invalid="true" /&gt;
+  &lt;p class="text-destructive text-xs" role="alert"&gt;Enter a valid email.&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;!-- Field grid --&gt;
+&lt;div class="grid grid-cols-2 gap-3"&gt;
+  &lt;div class="flex flex-col gap-1.5"&gt;
+    &lt;label class="text-sm font-medium" for="from"&gt;From&lt;/label&gt;
+    &lt;input id="from" type="date" class="fui-input" /&gt;
+  &lt;/div&gt;
+  &lt;div class="flex flex-col gap-1.5"&gt;
+    &lt;label class="text-sm font-medium" for="to"&gt;To&lt;/label&gt;
+    &lt;input id="to" type="date" class="fui-input" /&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+    </details>
+  </section>
+  <section class="fui-card p-6 mb-8">
+    <h2 class="text-xl font-semibold mb-1 capitalize">overlays</h2>
+    <p class="text-sm text-muted-foreground mb-4">
+      Live demo below; copy-paste source at the bottom.
+      <a class="text-primary underline"
+         href="https://github.com/fleekdash/fleek-ui/blob/main/snippets/overlays.html">snippets/overlays.html</a>
+    </p>
+    <div class="rounded-lg border border-dashed border-border p-6">
+<!-- Fleek UI snippets: Alpine overlay patterns (Pines-style x-data).
+     Surfaces use popover/card tokens so they track theme + dark mode.
+     x-cloak hides them until Alpine boots; x-transition for entrances. -->
+
+<!-- Dropdown menu -->
+<div class="relative" x-data="{ open: false }">
+  <button
+    type="button"
+    class="fui-btn fui-btn-outline"
+    x-on:click="open = !open"
+    x-bind:aria-expanded="open"
+    aria-haspopup="true">
+    Actions
+  </button>
+  <div
+    class="border-border bg-popover text-popover-foreground absolute right-0 z-50 mt-1 w-44 rounded-md border p-1 shadow-md"
+    role="menu"
+    x-show="open"
+    x-cloak
+    x-transition.opacity.scale.90
+    x-on:click.outside="open = false"
+    x-on:keydown.escape.window="open = false">
+    <button
+      type="button"
+      class="hover:bg-muted flex w-full items-center rounded-sm px-2 py-1.5 text-sm"
+      role="menuitem"
+      x-on:click="open = false">
+      Rename
+    </button>
+    <button
+      type="button"
+      class="hover:bg-muted flex w-full items-center rounded-sm px-2 py-1.5 text-sm"
+      role="menuitem"
+      x-on:click="open = false">
+      Duplicate
+    </button>
+    <div class="border-border my-1 border-t" role="separator"></div>
+    <button
+      type="button"
+      class="text-destructive hover:bg-destructive/10 flex w-full items-center rounded-sm px-2 py-1.5 text-sm"
+      role="menuitem"
+      x-on:click="open = false">
+      Delete
+    </button>
+  </div>
+</div>
+
+<!-- Modal: canonical scrim classes copied verbatim from PortalOverlay
+     (molecules/PortalOverlay) so Alpine modals and React overlays share one
+     scrim. Body scroll is the host's concern inside an iframe - keep the
+     surface itself scrollable. -->
+<div x-data="{ open: false }">
+  <button
+    type="button"
+    class="fui-btn fui-btn-primary"
+    x-on:click="open = true">
+    Open dialog
+  </button>
+  <template x-teleport="body">
+    <!-- .fleek-ui re-opened here: teleport escapes the host .fleek-ui root,
+         so the overlay carries its own scope for the base reset. -->
+    <div class="fleek-ui">
+      <div
+        class="bg-background/50 fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-[2px]"
+        role="dialog"
+        aria-modal="true"
+        x-show="open"
+        x-cloak
+        x-transition.opacity
+        x-on:keydown.escape.window="open = false">
+        <div
+          class="fui-card w-full max-w-md"
+          x-transition.opacity.scale.95
+          x-on:click.outside="open = false">
+          <div class="fui-card-header flex items-center justify-between">
+            <span>Confirm</span>
+            <button
+              type="button"
+              class="fui-btn fui-btn-ghost h-7 w-7 p-0"
+              aria-label="Close"
+              x-on:click="open = false">
+              &times;
+            </button>
+          </div>
+          <div class="fui-card-body text-muted-foreground text-sm">
+            This action cannot be undone.
+          </div>
+          <div class="fui-card-footer flex items-center justify-end gap-2">
+            <button
+              type="button"
+              class="fui-btn fui-btn-outline"
+              x-on:click="open = false">
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="fui-btn fui-btn-destructive"
+              x-on:click="open = false">
+              Delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+</div>
+
+<!-- Tabs -->
+<div x-data="{ tab: 'general' }">
+  <div class="border-border flex gap-1 border-b" role="tablist">
+    <button
+      type="button"
+      class="rounded-t-md px-3 py-1.5 text-sm font-medium"
+      role="tab"
+      x-bind:class="tab === 'general' ? 'bg-card text-foreground border border-border border-b-0 -mb-px' : 'text-muted-foreground hover:text-foreground'"
+      x-bind:aria-selected="tab === 'general'"
+      x-on:click="tab = 'general'">
+      General
+    </button>
+    <button
+      type="button"
+      class="rounded-t-md px-3 py-1.5 text-sm font-medium"
+      role="tab"
+      x-bind:class="tab === 'advanced' ? 'bg-card text-foreground border border-border border-b-0 -mb-px' : 'text-muted-foreground hover:text-foreground'"
+      x-bind:aria-selected="tab === 'advanced'"
+      x-on:click="tab = 'advanced'">
+      Advanced
+    </button>
+  </div>
+  <div class="fui-card rounded-t-none p-4" role="tabpanel">
+    <p class="text-sm" x-show="tab === 'general'">General settings.</p>
+    <p class="text-sm" x-show="tab === 'advanced'" x-cloak>
+      Advanced settings.
+    </p>
+  </div>
+</div>
+
+<!-- Tooltip (hover, no focus trap needed) -->
+<span class="relative inline-block" x-data="{ show: false }" x-id="['fui-tip']">
+  <button
+    type="button"
+    class="fui-btn fui-btn-ghost fui-btn-sm"
+    x-bind:aria-describedby="$id('fui-tip')"
+    x-on:mouseenter="show = true"
+    x-on:mouseleave="show = false"
+    x-on:focus="show = true"
+    x-on:blur="show = false">
+    ?
+  </button>
+  <span
+    class="bg-foreground text-background absolute bottom-full left-1/2 z-50 mb-1 -translate-x-1/2 rounded-sm px-2 py-1 text-xs whitespace-nowrap"
+    x-bind:id="$id('fui-tip')"
+    role="tooltip"
+    x-show="show"
+    x-cloak
+    x-transition.opacity
+    >Helpful hint</span
+  >
+</span>
+    </div>
+    <details class="mt-4">
+      <summary class="text-sm text-muted-foreground cursor-pointer">Source</summary>
+      <pre class="mt-2 text-xs overflow-auto rounded-lg bg-muted p-4"><code>&lt;!-- Fleek UI snippets: Alpine overlay patterns (Pines-style x-data).
+     Surfaces use popover/card tokens so they track theme + dark mode.
+     x-cloak hides them until Alpine boots; x-transition for entrances. --&gt;
+
+&lt;!-- Dropdown menu --&gt;
+&lt;div class="relative" x-data="{ open: false }"&gt;
+  &lt;button
+    type="button"
+    class="fui-btn fui-btn-outline"
+    x-on:click="open = !open"
+    x-bind:aria-expanded="open"
+    aria-haspopup="true"&gt;
+    Actions
+  &lt;/button&gt;
+  &lt;div
+    class="border-border bg-popover text-popover-foreground absolute right-0 z-50 mt-1 w-44 rounded-md border p-1 shadow-md"
+    role="menu"
+    x-show="open"
+    x-cloak
+    x-transition.opacity.scale.90
+    x-on:click.outside="open = false"
+    x-on:keydown.escape.window="open = false"&gt;
+    &lt;button
+      type="button"
+      class="hover:bg-muted flex w-full items-center rounded-sm px-2 py-1.5 text-sm"
+      role="menuitem"
+      x-on:click="open = false"&gt;
+      Rename
+    &lt;/button&gt;
+    &lt;button
+      type="button"
+      class="hover:bg-muted flex w-full items-center rounded-sm px-2 py-1.5 text-sm"
+      role="menuitem"
+      x-on:click="open = false"&gt;
+      Duplicate
+    &lt;/button&gt;
+    &lt;div class="border-border my-1 border-t" role="separator"&gt;&lt;/div&gt;
+    &lt;button
+      type="button"
+      class="text-destructive hover:bg-destructive/10 flex w-full items-center rounded-sm px-2 py-1.5 text-sm"
+      role="menuitem"
+      x-on:click="open = false"&gt;
+      Delete
+    &lt;/button&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Modal: canonical scrim classes copied verbatim from PortalOverlay
+     (molecules/PortalOverlay) so Alpine modals and React overlays share one
+     scrim. Body scroll is the host's concern inside an iframe - keep the
+     surface itself scrollable. --&gt;
+&lt;div x-data="{ open: false }"&gt;
+  &lt;button
+    type="button"
+    class="fui-btn fui-btn-primary"
+    x-on:click="open = true"&gt;
+    Open dialog
+  &lt;/button&gt;
+  &lt;template x-teleport="body"&gt;
+    &lt;!-- .fleek-ui re-opened here: teleport escapes the host .fleek-ui root,
+         so the overlay carries its own scope for the base reset. --&gt;
+    &lt;div class="fleek-ui"&gt;
+      &lt;div
+        class="bg-background/50 fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-[2px]"
+        role="dialog"
+        aria-modal="true"
+        x-show="open"
+        x-cloak
+        x-transition.opacity
+        x-on:keydown.escape.window="open = false"&gt;
+        &lt;div
+          class="fui-card w-full max-w-md"
+          x-transition.opacity.scale.95
+          x-on:click.outside="open = false"&gt;
+          &lt;div class="fui-card-header flex items-center justify-between"&gt;
+            &lt;span&gt;Confirm&lt;/span&gt;
+            &lt;button
+              type="button"
+              class="fui-btn fui-btn-ghost h-7 w-7 p-0"
+              aria-label="Close"
+              x-on:click="open = false"&gt;
+              &amp;times;
+            &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class="fui-card-body text-muted-foreground text-sm"&gt;
+            This action cannot be undone.
+          &lt;/div&gt;
+          &lt;div class="fui-card-footer flex items-center justify-end gap-2"&gt;
+            &lt;button
+              type="button"
+              class="fui-btn fui-btn-outline"
+              x-on:click="open = false"&gt;
+              Cancel
+            &lt;/button&gt;
+            &lt;button
+              type="button"
+              class="fui-btn fui-btn-destructive"
+              x-on:click="open = false"&gt;
+              Delete
+            &lt;/button&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/template&gt;
+&lt;/div&gt;
+
+&lt;!-- Tabs --&gt;
+&lt;div x-data="{ tab: 'general' }"&gt;
+  &lt;div class="border-border flex gap-1 border-b" role="tablist"&gt;
+    &lt;button
+      type="button"
+      class="rounded-t-md px-3 py-1.5 text-sm font-medium"
+      role="tab"
+      x-bind:class="tab === 'general' ? 'bg-card text-foreground border border-border border-b-0 -mb-px' : 'text-muted-foreground hover:text-foreground'"
+      x-bind:aria-selected="tab === 'general'"
+      x-on:click="tab = 'general'"&gt;
+      General
+    &lt;/button&gt;
+    &lt;button
+      type="button"
+      class="rounded-t-md px-3 py-1.5 text-sm font-medium"
+      role="tab"
+      x-bind:class="tab === 'advanced' ? 'bg-card text-foreground border border-border border-b-0 -mb-px' : 'text-muted-foreground hover:text-foreground'"
+      x-bind:aria-selected="tab === 'advanced'"
+      x-on:click="tab = 'advanced'"&gt;
+      Advanced
+    &lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class="fui-card rounded-t-none p-4" role="tabpanel"&gt;
+    &lt;p class="text-sm" x-show="tab === 'general'"&gt;General settings.&lt;/p&gt;
+    &lt;p class="text-sm" x-show="tab === 'advanced'" x-cloak&gt;
+      Advanced settings.
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;!-- Tooltip (hover, no focus trap needed) --&gt;
+&lt;span class="relative inline-block" x-data="{ show: false }" x-id="['fui-tip']"&gt;
+  &lt;button
+    type="button"
+    class="fui-btn fui-btn-ghost fui-btn-sm"
+    x-bind:aria-describedby="$id('fui-tip')"
+    x-on:mouseenter="show = true"
+    x-on:mouseleave="show = false"
+    x-on:focus="show = true"
+    x-on:blur="show = false"&gt;
+    ?
+  &lt;/button&gt;
+  &lt;span
+    class="bg-foreground text-background absolute bottom-full left-1/2 z-50 mb-1 -translate-x-1/2 rounded-sm px-2 py-1 text-xs whitespace-nowrap"
+    x-bind:id="$id('fui-tip')"
+    role="tooltip"
+    x-show="show"
+    x-cloak
+    x-transition.opacity
+    &gt;Helpful hint&lt;/span
+  &gt;
+&lt;/span&gt;</code></pre>
+    </details>
+  </section>
+</main>
+</body>
+</html>
