@@ -70,7 +70,7 @@ Register the `@fleek` namespace in `components.json`:
 ```json
 {
   "registries": {
-    "@fleek": "https://raw.githubusercontent.com/fleekdash/fleek-ui/main/registry/{name}.json"
+    "@fleek": "https://ui.fleekdash.com/registry/{name}.json"
   }
 }
 ```
