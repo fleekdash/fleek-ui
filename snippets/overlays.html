@@ -57,44 +57,48 @@
     Open dialog
   </button>
   <template x-teleport="body">
-    <div
-      class="bg-background/50 fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-[2px]"
-      role="dialog"
-      aria-modal="true"
-      x-show="open"
-      x-cloak
-      x-transition.opacity
-      x-on:keydown.escape.window="open = false">
+    <!-- .fleek-ui re-opened here: teleport escapes the host .fleek-ui root,
+         so the overlay carries its own scope for the base reset. -->
+    <div class="fleek-ui">
       <div
-        class="fui-card w-full max-w-md"
-        x-transition.opacity.scale.95
-        x-on:click.outside="open = false">
-        <div class="fui-card-header flex items-center justify-between">
-          <span>Confirm</span>
-          <button
-            type="button"
-            class="fui-btn fui-btn-ghost h-7 w-7 p-0"
-            aria-label="Close"
-            x-on:click="open = false">
-            &times;
-          </button>
-        </div>
-        <div class="fui-card-body text-muted-foreground text-sm">
-          This action cannot be undone.
-        </div>
-        <div class="fui-card-footer flex items-center justify-end gap-2">
-          <button
-            type="button"
-            class="fui-btn fui-btn-outline"
-            x-on:click="open = false">
-            Cancel
-          </button>
-          <button
-            type="button"
-            class="fui-btn fui-btn-destructive"
-            x-on:click="open = false">
-            Delete
-          </button>
+        class="bg-background/50 fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-[2px]"
+        role="dialog"
+        aria-modal="true"
+        x-show="open"
+        x-cloak
+        x-transition.opacity
+        x-on:keydown.escape.window="open = false">
+        <div
+          class="fui-card w-full max-w-md"
+          x-transition.opacity.scale.95
+          x-on:click.outside="open = false">
+          <div class="fui-card-header flex items-center justify-between">
+            <span>Confirm</span>
+            <button
+              type="button"
+              class="fui-btn fui-btn-ghost h-7 w-7 p-0"
+              aria-label="Close"
+              x-on:click="open = false">
+              &times;
+            </button>
+          </div>
+          <div class="fui-card-body text-muted-foreground text-sm">
+            This action cannot be undone.
+          </div>
+          <div class="fui-card-footer flex items-center justify-end gap-2">
+            <button
+              type="button"
+              class="fui-btn fui-btn-outline"
+              x-on:click="open = false">
+              Cancel
+            </button>
+            <button
+              type="button"
+              class="fui-btn fui-btn-destructive"
+              x-on:click="open = false">
+              Delete
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -132,10 +136,11 @@
 </div>
 
 <!-- Tooltip (hover, no focus trap needed) -->
-<span class="relative inline-block" x-data="{ show: false }">
+<span class="relative inline-block" x-data="{ show: false }" x-id="['fui-tip']">
   <button
     type="button"
     class="fui-btn fui-btn-ghost fui-btn-sm"
+    x-bind:aria-describedby="$id('fui-tip')"
     x-on:mouseenter="show = true"
     x-on:mouseleave="show = false"
     x-on:focus="show = true"
@@ -144,6 +149,7 @@
   </button>
   <span
     class="bg-foreground text-background absolute bottom-full left-1/2 z-50 mb-1 -translate-x-1/2 rounded-sm px-2 py-1 text-xs whitespace-nowrap"
+    x-bind:id="$id('fui-tip')"
     role="tooltip"
     x-show="show"
     x-cloak
