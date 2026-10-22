@@ -4232,6 +4232,20 @@
     border-color: var(--ring);
   }
 
+  .focus-visible\:bg-destructive\/10:focus-visible {
+    background-color: var(--destructive);
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .focus-visible\:bg-destructive\/10:focus-visible {
+      background-color: color-mix(in oklab, var(--destructive) 10%, transparent);
+    }
+  }
+
+  .focus-visible\:bg-muted:focus-visible {
+    background-color: var(--muted);
+  }
+
   .focus-visible\:shadow-\[0_0_0_var\(--field-focus-ring-width\)_var\(--field-focus-ring\)\]:focus-visible {
     --tw-shadow: 0 0 0 var(--tw-shadow-color, var(--field-focus-ring-width)) var(--field-focus-ring);
     box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
