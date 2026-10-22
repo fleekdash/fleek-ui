@@ -5,7 +5,9 @@
 <!-- Dropdown menu: focus moves into the menu on open and back to the
      trigger on close (Escape, item click, click-outside). ArrowUp/Down
      cycles items; Tab closes and lets focus continue naturally. -->
-<div class="relative" x-data="{
+<div
+  class="relative"
+  x-data="{
     open: false,
     openMenu() {
       this.open = true;
@@ -24,19 +26,48 @@
       list[(i + delta + list.length) % list.length]?.focus();
     },
   }">
-  <button type="button" class="fui-btn fui-btn-outline" x-ref="trigger" x-on:click="open ? closeMenu() : openMenu()" x-on:keydown.arrow-down.prevent="openMenu()" x-bind:aria-expanded="open" aria-haspopup="menu">
+  <button
+    type="button"
+    class="fui-btn fui-btn-outline"
+    x-ref="trigger"
+    x-on:click="open ? closeMenu() : openMenu()"
+    x-on:keydown.arrow-down.prevent="openMenu()"
+    x-bind:aria-expanded="open"
+    aria-haspopup="menu">
     Actions
   </button>
-  <div class="border-border bg-popover text-popover-foreground absolute right-0 z-50 mt-1 w-44 rounded-md border p-1 shadow-md" role="menu" x-ref="menu" x-show="open" x-cloak x-transition.opacity.scale.90
-    x-on:click.outside="closeMenu()" x-on:keydown.escape.window="closeMenu()" x-on:keydown.tab="open = false" x-on:keydown.arrow-down.prevent="moveFocus(1)" x-on:keydown.arrow-up.prevent="moveFocus(-1)">
-    <button type="button" class="hover:bg-muted focus-visible:bg-muted flex w-full items-center rounded-sm px-2 py-1.5 text-sm" role="menuitem" x-on:click="closeMenu()">
+  <div
+    class="border-border bg-popover text-popover-foreground absolute right-0 z-50 mt-1 w-44 rounded-md border p-1 shadow-md"
+    role="menu"
+    x-ref="menu"
+    x-show="open"
+    x-cloak
+    x-transition.opacity.scale.90
+    x-on:click.outside="closeMenu()"
+    x-on:keydown.escape.window="closeMenu()"
+    x-on:keydown.tab="open = false"
+    x-on:keydown.arrow-down.prevent="moveFocus(1)"
+    x-on:keydown.arrow-up.prevent="moveFocus(-1)">
+    <button
+      type="button"
+      class="hover:bg-muted focus-visible:bg-muted flex w-full items-center rounded-sm px-2 py-1.5 text-sm"
+      role="menuitem"
+      x-on:click="closeMenu()">
       Rename
     </button>
-    <button type="button" class="hover:bg-muted focus-visible:bg-muted flex w-full items-center rounded-sm px-2 py-1.5 text-sm" role="menuitem" x-on:click="closeMenu()">
+    <button
+      type="button"
+      class="hover:bg-muted focus-visible:bg-muted flex w-full items-center rounded-sm px-2 py-1.5 text-sm"
+      role="menuitem"
+      x-on:click="closeMenu()">
       Duplicate
     </button>
     <div class="border-border my-1 border-t" role="separator"></div>
-    <button type="button" class="text-destructive hover:bg-destructive/10 focus-visible:bg-destructive/10 flex w-full items-center rounded-sm px-2 py-1.5 text-sm" role="menuitem" x-on:click="closeMenu()">
+    <button
+      type="button"
+      class="text-destructive hover:bg-destructive/10 focus-visible:bg-destructive/10 flex w-full items-center rounded-sm px-2 py-1.5 text-sm"
+      role="menuitem"
+      x-on:click="closeMenu()">
       Delete
     </button>
   </div>
@@ -47,19 +78,35 @@
      scrim. Body scroll is the host's concern inside an iframe - keep the
      surface itself scrollable. -->
 <div x-data="{ open: false }">
-  <button type="button" class="fui-btn fui-btn-primary" x-on:click="open = true">
+  <button
+    type="button"
+    class="fui-btn fui-btn-primary"
+    x-on:click="open = true">
     Open dialog
   </button>
   <template x-teleport="body">
     <!-- .fleek-ui re-opened here: teleport escapes the host .fleek-ui root,
          so the overlay carries its own scope for the base reset. -->
     <div class="fleek-ui">
-      <div class="bg-background/50 fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-[2px]" role="dialog" aria-modal="true" x-show="open" x-cloak x-transition.opacity
+      <div
+        class="bg-background/50 fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-[2px]"
+        role="dialog"
+        aria-modal="true"
+        x-show="open"
+        x-cloak
+        x-transition.opacity
         x-on:keydown.escape.window="open = false">
-        <div class="fui-card w-full max-w-md" x-transition.opacity.scale.95 x-on:click.outside="open = false">
+        <div
+          class="fui-card w-full max-w-md"
+          x-transition.opacity.scale.95
+          x-on:click.outside="open = false">
           <div class="fui-card-header flex items-center justify-between">
             <span>Confirm</span>
-            <button type="button" class="fui-btn fui-btn-ghost h-7 w-7 p-0" aria-label="Close" x-on:click="open = false">
+            <button
+              type="button"
+              class="fui-btn fui-btn-ghost h-7 w-7 p-0"
+              aria-label="Close"
+              x-on:click="open = false">
               &times;
             </button>
           </div>
@@ -67,10 +114,16 @@
             This action cannot be undone.
           </div>
           <div class="fui-card-footer flex items-center justify-end gap-2">
-            <button type="button" class="fui-btn fui-btn-outline" x-on:click="open = false">
+            <button
+              type="button"
+              class="fui-btn fui-btn-outline"
+              x-on:click="open = false">
               Cancel
             </button>
-            <button type="button" class="fui-btn fui-btn-destructive" x-on:click="open = false">
+            <button
+              type="button"
+              class="fui-btn fui-btn-destructive"
+              x-on:click="open = false">
               Delete
             </button>
           </div>
@@ -83,13 +136,21 @@
 <!-- Tabs -->
 <div x-data="{ tab: 'general' }">
   <div class="border-border flex gap-1 border-b" role="tablist">
-    <button type="button" class="rounded-t-md px-3 py-1.5 text-sm font-medium" role="tab"
-      x-bind:class="tab === 'general' ? 'bg-card text-foreground border border-border border-b-0 -mb-px' : 'text-muted-foreground hover:text-foreground'" x-bind:aria-selected="tab === 'general'"
+    <button
+      type="button"
+      class="rounded-t-md px-3 py-1.5 text-sm font-medium"
+      role="tab"
+      x-bind:class="tab === 'general' ? 'bg-card text-foreground border border-border border-b-0 -mb-px' : 'text-muted-foreground hover:text-foreground'"
+      x-bind:aria-selected="tab === 'general'"
       x-on:click="tab = 'general'">
       General
     </button>
-    <button type="button" class="rounded-t-md px-3 py-1.5 text-sm font-medium" role="tab"
-      x-bind:class="tab === 'advanced' ? 'bg-card text-foreground border border-border border-b-0 -mb-px' : 'text-muted-foreground hover:text-foreground'" x-bind:aria-selected="tab === 'advanced'"
+    <button
+      type="button"
+      class="rounded-t-md px-3 py-1.5 text-sm font-medium"
+      role="tab"
+      x-bind:class="tab === 'advanced' ? 'bg-card text-foreground border border-border border-b-0 -mb-px' : 'text-muted-foreground hover:text-foreground'"
+      x-bind:aria-selected="tab === 'advanced'"
       x-on:click="tab = 'advanced'">
       Advanced
     </button>
@@ -104,9 +165,23 @@
 
 <!-- Tooltip (hover, no focus trap needed) -->
 <span class="relative inline-block" x-data="{ show: false }" x-id="['fui-tip']">
-  <button type="button" class="fui-btn fui-btn-ghost fui-btn-sm" x-bind:aria-describedby="$id('fui-tip')" x-on:mouseenter="show = true" x-on:mouseleave="show = false" x-on:focus="show = true" x-on:blur="show = false">
+  <button
+    type="button"
+    class="fui-btn fui-btn-ghost fui-btn-sm"
+    x-bind:aria-describedby="$id('fui-tip')"
+    x-on:mouseenter="show = true"
+    x-on:mouseleave="show = false"
+    x-on:focus="show = true"
+    x-on:blur="show = false">
     ?
   </button>
-  <span class="bg-foreground text-background absolute bottom-full left-1/2 z-50 mb-1 -translate-x-1/2 rounded-sm px-2 py-1 text-xs whitespace-nowrap" x-bind:id="$id('fui-tip')" role="tooltip" x-show="show" x-cloak
-    x-transition.opacity>Helpful hint</span>
+  <span
+    class="bg-foreground text-background absolute bottom-full left-1/2 z-50 mb-1 -translate-x-1/2 rounded-sm px-2 py-1 text-xs whitespace-nowrap"
+    x-bind:id="$id('fui-tip')"
+    role="tooltip"
+    x-show="show"
+    x-cloak
+    x-transition.opacity
+    >Helpful hint</span
+  >
 </span>
