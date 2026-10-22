@@ -374,8 +374,10 @@
     },
     moveFocus(delta) {
       const list = this.items();
-      const i = Math.max(0, list.indexOf(document.activeElement));
-      list[(i + delta + list.length) % list.length]?.focus();
+      const i = list.indexOf(document.activeElement);
+      // focus not on an item: ArrowDown lands on first, ArrowUp on last.
+      const from = i < 0 ? (delta > 0 ? -1 : 0) : i;
+      list[(from + delta + list.length) % list.length]?.focus();
     },
   }">
   <button
@@ -564,8 +566,10 @@
     },
     moveFocus(delta) {
       const list = this.items();
-      const i = Math.max(0, list.indexOf(document.activeElement));
-      list[(i + delta + list.length) % list.length]?.focus();
+      const i = list.indexOf(document.activeElement);
+      // focus not on an item: ArrowDown lands on first, ArrowUp on last.
+      const from = i &lt; 0 ? (delta &gt; 0 ? -1 : 0) : i;
+      list[(from + delta + list.length) % list.length]?.focus();
     },
   }"&gt;
   &lt;button
