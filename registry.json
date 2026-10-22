@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry.json",
   "name": "fleek",
-  "homepage": "https://fleekdash.com",
+  "homepage": "https://ui.fleekdash.com",
   "items": [
     {
       "name": "fleek-ui",
