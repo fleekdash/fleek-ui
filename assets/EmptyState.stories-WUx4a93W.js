@@ -1,0 +1,24 @@
+import{j as e}from"./iframe-AoE8j4ij.js";import{c as p}from"./instant-translate-CWwN--yb.js";import{I as o}from"./menu-trigger-chevron-DNXigjts.js";import{B as z}from"./index-BBiTMy7-.js";import"./preload-helper-Dp1pzeXC.js";import"./button-text-DaZ12UVP.js";import"./index-D0Ytr1w-.js";import"./index-CyY0JB9U.js";import"./index-C3ln6uYD.js";import"./index-Dnjqcorn.js";import"./index-BPufsg8P.js";import"./index-D64T_Elo.js";import"./index-fqVMh7ov.js";import"./index-0wqsOdXR.js";import"./index-2t5kVuOk.js";import"./index-CoOhShBD.js";import"./index-ClnyGmSk.js";import"./index-BECtpOBS.js";import"./index-e2Y0WjtR.js";import"./index-DUlY3mAG.js";import"./index-CJar-LNY.js";import"./index-BXu8nf8_.js";function S({title:I,description:d,icon:l,icons:A=[],action:r,className:C}){const t=l?[l]:A,m=t.length===3,E=t.length>0&&!m;let c=null;return m?c=e.jsxs(e.Fragment,{children:[e.jsx("div",{className:"bg-card border-border relative start-2.5 top-1.5 grid size-12 -rotate-6 place-items-center rounded-xl border shadow-lg group-hover:-translate-y-0.5 group-hover:-rotate-12 ltr:group-hover:-translate-x-5 rtl:group-hover:translate-x-5",children:e.jsx(o,{name:t[0],className:"text-muted-foreground h-6 w-6"})}),e.jsx("div",{className:"bg-card border-border relative z-10 grid size-12 place-items-center rounded-xl border shadow-lg group-hover:-translate-y-0.5",children:e.jsx(o,{name:t[1],className:"text-muted-foreground h-6 w-6"})}),e.jsx("div",{className:"bg-card border-border relative end-2.5 top-1.5 grid size-12 rotate-6 place-items-center rounded-xl border shadow-lg group-hover:-translate-y-0.5 group-hover:rotate-12 ltr:group-hover:translate-x-5 rtl:group-hover:-translate-x-5",children:e.jsx(o,{name:t[2],className:"text-muted-foreground h-6 w-6"})})]}):E&&(c=e.jsx("div",{className:"bg-card border-border grid size-12 place-items-center rounded-xl border shadow-lg group-hover:-translate-y-0.5",children:e.jsx(o,{name:t[0],className:"text-muted-foreground h-6 w-6"})})),e.jsxs("div",{className:p("border-border hover:border-border/80 from-muted via-background to-muted h-full bg-linear-to-br text-center","flex w-full flex-col items-center justify-center rounded-xl border border-dashed p-14","group hover:bg-muted/50",C),children:[e.jsx("div",{className:"isolate flex items-center justify-center",children:c}),e.jsx("h2",{className:"text-foreground mt-6 font-medium",children:I}),d!==""&&e.jsx("p",{className:"text-muted-foreground mt-2 max-w-sm text-sm whitespace-pre-line",children:d}),r&&e.jsx(z,{onClick:r.onClick,variant:"outline",disabled:r.disabled,className:p("mt-4","shadow-xs active:shadow-none"),children:r.label})]})}S.__docgenInfo={description:"",methods:[],displayName:"EmptyState",props:{icons:{defaultValue:{value:"[]",computed:!1},required:!1}}};const $={title:"Components/Feedback/EmptyState",component:S,parameters:{layout:"centered",docs:{description:{component:"Empty-state panel: single icon or a 3-icon fanned stack (passing exactly 3 `icons` triggers the stacked treatment), title, description and optional action button."}}},tags:["autodocs"],argTypes:{icon:{control:"text"},title:{control:"text"},description:{control:"text"}},args:{title:"No widgets yet",description:"Add your first widget to start building this dashboard."}},s={args:{icon:"stat"}},a={args:{icons:["stat","notification","settings"],title:"Nothing to review",description:"Pending items across all connectors appear here."}},n={args:{icon:"rocket",action:{label:"Add widget",onClick:()=>{}}}},i={args:{title:"All caught up",description:"There is nothing left in this queue."}},ee=["SingleIcon","StackedIcons","WithAction","NoIcon"];var g,u,h;s.parameters={...s.parameters,docs:{...(g=s.parameters)==null?void 0:g.docs,source:{originalSource:`{
+  args: {
+    icon: "stat"
+  }
+}`,...(h=(u=s.parameters)==null?void 0:u.docs)==null?void 0:h.source}}};var x,b,f;a.parameters={...a.parameters,docs:{...(x=a.parameters)==null?void 0:x.docs,source:{originalSource:`{
+  args: {
+    icons: ["stat", "notification", "settings"],
+    title: "Nothing to review",
+    description: "Pending items across all connectors appear here."
+  }
+}`,...(f=(b=a.parameters)==null?void 0:b.docs)==null?void 0:f.source}}};var v,w,N;n.parameters={...n.parameters,docs:{...(v=n.parameters)==null?void 0:v.docs,source:{originalSource:`{
+  args: {
+    icon: "rocket",
+    action: {
+      label: "Add widget",
+      onClick: () => {}
+    }
+  }
+}`,...(N=(w=n.parameters)==null?void 0:w.docs)==null?void 0:N.source}}};var j,y,k;i.parameters={...i.parameters,docs:{...(j=i.parameters)==null?void 0:j.docs,source:{originalSource:`{
+  args: {
+    title: "All caught up",
+    description: "There is nothing left in this queue."
+  }
+}`,...(k=(y=i.parameters)==null?void 0:y.docs)==null?void 0:k.source}}};export{i as NoIcon,s as SingleIcon,a as StackedIcons,n as WithAction,ee as __namedExportsOrder,$ as default};
