@@ -76,12 +76,25 @@ Register the `@fleek` namespace in `components.json`:
 ```
 
 ```bash
-npx shadcn@latest add @fleek/fleek-ui   # stylesheet → vendor/fleek-ui/fleek-ui.css
-npx shadcn@latest add @fleek/button     # snippet     → fleek-ui/snippets/button.html
+npx shadcn@latest add @fleek/fleek-ui        # stylesheet      → vendor/fleek-ui/fleek-ui.css
+npx shadcn@latest add @fleek/button          # React component → fleek-ui/ tree (self-contained)
+npx shadcn@latest add @fleek/snippet-button  # HTML/Alpine     → fleek-ui/snippets/button.html
 ```
+
+React component items ship the full transitive `fleek-ui/` source tree —
+imports resolve untouched, and external deps install from the registry
+item's `dependencies` automatically. `snippet-*` items embed the
+stylesheet too, so a single `add` is self-contained.
 
 Browse every item in [`registry.json`](./registry.json) or
 [`registry/`](./registry).
+
+## Docs site
+
+<https://ui.fleekdash.com> — live Storybook previews for every React
+component (source: `gh-pages` branch, redeployed by the sync) plus
+<https://ui.fleekdash.com/playground.html>, a live demo page rendering
+every Alpine/htmx snippet.
 
 ## Class inventory (v1)
 
@@ -107,6 +120,7 @@ changes upstream. Regenerate with:
 
 ```bash
 pnpm sync:fleek-ui        # monorepo: mirror + commit + push
+pnpm sync:fleek-ui:site   # monorepo: build docs site + deploy gh-pages
 pnpm generate:fleek-ui    # monorepo: rebuild css/fleek-ui.css
 ```
 
