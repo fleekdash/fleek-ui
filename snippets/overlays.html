@@ -45,8 +45,10 @@
   </div>
 </div>
 
-<!-- Modal: fixed overlay + centered card; body scroll is the host's
-     concern inside an iframe - keep the surface itself scrollable. -->
+<!-- Modal: canonical scrim classes copied verbatim from PortalOverlay
+     (molecules/PortalOverlay) so Alpine modals and React overlays share one
+     scrim. Body scroll is the host's concern inside an iframe - keep the
+     surface itself scrollable. -->
 <div x-data="{ open: false }">
   <button
     type="button"
@@ -56,7 +58,7 @@
   </button>
   <template x-teleport="body">
     <div
-      class="bg-background-alpha-50 fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-sm"
+      class="bg-background/50 fixed inset-0 z-50 flex items-center justify-center p-4 backdrop-blur-[2px]"
       role="dialog"
       aria-modal="true"
       x-show="open"

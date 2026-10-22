@@ -99,6 +99,7 @@
 
 @layer theme {
   :root, :host {
+    --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --color-red-50: oklch(97.1% .013 17.38);
     --color-red-100: oklch(93.6% .032 17.717);
@@ -1945,15 +1946,7 @@
     background-color: var(--color-amber-50);
   }
 
-  .bg-background {
-    background-color: var(--background);
-  }
-
-  .bg-background-alpha-50 {
-    background-color: var(--background-alpha-50);
-  }
-
-  .bg-background\/50 {
+  .bg-background, .bg-background\/50 {
     background-color: var(--background);
   }
 
@@ -2538,6 +2531,10 @@
 
   .font-mono {
     font-family: var(--font-mono);
+  }
+
+  .font-sans {
+    font-family: var(--font-sans);
   }
 
   .text-2xl {
@@ -6540,7 +6537,7 @@
   }
 
   .fleek-ui .htmx-request.htmx-indicator-hide, .fleek-ui .htmx-request .htmx-indicator-hide {
-    opacity: .5;
+    visibility: hidden;
   }
 }
 

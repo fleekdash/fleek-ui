@@ -1,4 +1,4 @@
-# Fleek UI for packs — authoring guide
+# Fleek UI for packs - authoring guide
 
 **Audience:** humans and agents writing FleekDash extensions without a
 build step (Alpine + HTMX packs, PHP-rendered pages).
@@ -11,7 +11,7 @@ build step (Alpine + HTMX packs, PHP-rendered pages).
 
 ## 1. Loading the stylesheet
 
-One line in your page head — never a CDN link, never `wp_enqueue_*`:
+One line in your page head - never a CDN link, never `wp_enqueue_*`:
 
 ```php
 \FleekDash\Extension\ExtensionAssets::renderLinkTags(
@@ -21,9 +21,9 @@ One line in your page head — never a CDN link, never `wp_enqueue_*`:
 
 `ExtensionAssets::linkTag($handle, $attrs)` returns the tag as a string
 (supports `media`, `id`, `nonce`, `integrity`, `referrerpolicy`,
-`crossorigin`, `title`, `disabled` — `rel`/`href` are never
+`crossorigin`, `title`, `disabled` - `rel`/`href` are never
 caller-settable). `linkTags(array)` joins several; `renderLinkTags`
-echoes. Unknown handles degrade to `''` — no 404s.
+echoes. Unknown handles degrade to `''` - no 404s.
 
 ## 2. The `.fleek-ui` contract
 
@@ -34,7 +34,7 @@ echoes. Unknown handles degrade to `''` — no 404s.
 (or any wrapper element). Inside `.fleek-ui` the stylesheet provides a
 preflight-aligned scoped reset: border-box, normalized form elements,
 token-driven font family/size/line-height/foreground/background.
-**Outside `.fleek-ui` nothing is reset** — and no rule in the file ever
+**Outside `.fleek-ui` nothing is reset** - and no rule in the file ever
 touches the host page: the only global selectors are `:root` and
 `.dark` custom-property declarations (starter-palette *defaults* that
 host-injected `[data-theme]`/palette variables always override).
@@ -43,7 +43,7 @@ Rules:
 
 - Put the class on `<body>` for full-document pack pages; on a wrapper
   `div` for packs embedded into larger markup.
-- `x-cloak` on anything Alpine shows/hides — the base layer ships
+- `x-cloak` on anything Alpine shows/hides - the base layer ships
   `[x-cloak] { display:none !important }` (inside `.fleek-ui` only).
 - `dark:` / `.dark` respond to the class the host applies on the iframe
   `<html>`; `local-dark:` / `.dark-sidebar` to sidebar surfaces.
@@ -66,7 +66,7 @@ Rules:
 | `fui-card` | `var(--card)` bg, `--card-foreground` text, `--border`, `--radius-lg`. |
 | `fui-card-header` / `-body` / `-footer` | Padded regions with hairline separators. |
 | `fui-badge` | Pill base (`--radius-full`, text-xs). |
-| `fui-badge-primary` / `-success` / `-warning` / `-danger` / `-muted` | Soft color-mix tints of the semantic tokens — same contract as the React badge's light appearance. |
+| `fui-badge-primary` / `-success` / `-warning` / `-danger` / `-muted` | Soft color-mix tints of the semantic tokens - same contract as the React badge's light appearance. |
 | `fui-skeleton` | `var(--skeleton-base)` fill + `--radius-md`; compose with `animate-pulse` / `animate-shimmer`. |
 
 Utilities always override `fui-*` (components layer precedes utilities).
@@ -74,7 +74,7 @@ Utilities always override `fui-*` (components layer precedes utilities).
 ### 3.2 Utilities (Tailwind v4 against the FleekDash `@theme`)
 
 The emitted subset covers whatever the React components, snippets and
-starter packs actually use — layout (`flex`, `grid`, `gap-*`, `p-*`,
+starter packs actually use - layout (`flex`, `grid`, `gap-*`, `p-*`,
 `m-*`, `size-*`…), typography (`text-{xs..6xl}`, `font-*`, `leading-*`,
 `tracking-*`), borders (`rounded-*`, `border-*`), effects
 (`shadow-*`, `opacity-*`, `backdrop-blur-*`), transforms, display,
@@ -84,7 +84,7 @@ position, z-index, `line-clamp-*`, `break-*`, interactivity
 `zoom-*`, `accordion-*`) plus `animate-pulse`, `animate-shimmer`,
 `skeleton-bg`, `skeleton-animate`.
 
-**Color utilities are token-bound** — always prefer the semantic names:
+**Color utilities are token-bound** - always prefer the semantic names:
 
 | Utility family | Resolves to |
 |---|---|
@@ -93,7 +93,7 @@ position, z-index, `line-clamp-*`, `break-*`, interactivity
 | `border-border`, `border-input`, `border-primary`, `border-destructive`… | border vars |
 | `ring-ring` / `ring-offset-*` | `--ring` focus ring |
 | `bg-chart-1`…`bg-chart-5` | chart palette vars |
-| Tailwind palette (`bg-blue-600`, `text-green-500`…) | `--color-*` defaults — **avoid for semantic use; these don't follow the palette** |
+| Tailwind palette (`bg-blue-600`, `text-green-500`…) | `--color-*` defaults - **avoid for semantic use; these don't follow the palette** |
 
 ### 3.3 Variants
 
@@ -107,18 +107,18 @@ position, z-index, `line-clamp-*`, `break-*`, interactivity
 
 ### 3.4 htmx / Alpine hooks
 
-- `.htmx-indicator` — hidden until its request is in flight;
+- `.htmx-indicator` - hidden until its request is in flight;
   `.htmx-request .htmx-indicator { opacity: 1 }`.
-- `.htmx-indicator-hide` — dims while its own request runs.
-- `[x-cloak]` — `display:none !important` until Alpine initializes.
+- `.htmx-indicator-hide` - dims while its own request runs.
+- `[x-cloak]` - `display:none !important` until Alpine initializes.
 - `x-data`, `x-show`, `x-transition.*`, `x-on:*`, `x-bind:*`, `x-model`,
-  `x-text`, `x-cloak`, `x-teleport` — Alpine 3.15 vendored via
+  `x-text`, `x-cloak`, `x-teleport` - Alpine 3.15 vendored via
   `ExtensionAssets::ALPINE`.
 
 ## 4. Snippet library
 
 `packages/design-system/snippets/` holds the copy-paste blocks (each is
-also scanned by the CSS build — every class used there is guaranteed to
+also scanned by the CSS build - every class used there is guaranteed to
 exist in `fleek-ui.css`):
 
 | File | Contents |
@@ -135,16 +135,16 @@ entrances, `x-on:click.outside` + `keydown.escape.window` for dismiss,
 
 ## 5. Hard rules (enforced in review)
 
-1. **No hex colors, ever** — semantic tokens/utilities only. If a value
+1. **No hex colors, ever** - semantic tokens/utilities only. If a value
    isn't expressible as `var(--token)` or a utility, the design system
-   is missing a token — file it, don't hardcode it.
-2. **No pack stylesheets, no `<style>` blocks, no custom selectors** —
+   is missing a token - file it, don't hardcode it.
+2. **No pack stylesheets, no `<style>` blocks, no custom selectors** -
    compose `fui-*` + utilities; emit conditional classes server-side.
-3. **No CDN assets** — `ExtensionAssets` is the only loader
+3. **No CDN assets** - `ExtensionAssets` is the only loader
    (`linkTag`/`scriptTag` for vendored files).
-4. **`class="fleek-ui"` on the app root** — resets and typography are
+4. **`class="fleek-ui"` on the app root** - resets and typography are
    scoped to it.
-5. **Escape in PHP** — `esc_html`/`esc_attr`/`esc_url` at render time;
+5. **Escape in PHP** - `esc_html`/`esc_attr`/`esc_url` at render time;
    fragments are HTML strings over REST.
 
 ## 6. How it stays in sync with the shell
@@ -154,7 +154,7 @@ transforms the theme source files (`src/themes/fleekdash-starter/*`,
 `src/themes/skeleton-tokens.css`, `src/theme-provider/index.css`) into
 `:root`/`.dark` default blocks and extracts `@custom-variant` +
 `@theme inline` verbatim from `src/styles/globals.css`. Tokens,
-variants and utility names can therefore never diverge from the host —
+variants and utility names can therefore never diverge from the host -
 editing the shell palette or adding a custom variant automatically
 rebuilds into the extension stylesheet. Utility emission is
 candidate-driven: only classes present in `packages/design-system/src`,
@@ -162,7 +162,7 @@ candidate-driven: only classes present in `packages/design-system/src`,
 
 When embedded in FleekDash, the host's iframe token bridge
 (`iframe-tokens.css` + `paletteVarsCss` + `.dark`/`data-theme` on
-`<html>`) re-maps the same variables — the pack inherits the active
+`<html>`) re-maps the same variables - the pack inherits the active
 theme, palette and dark mode with zero pack-side code. Standalone
 (outside FleekDash), the `:root` starter defaults render a coherent
 light/dark baseline.
