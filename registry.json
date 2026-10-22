@@ -11,25 +11,25 @@
     },
     {
       "name": "button",
-      "type": "registry:block",
+      "type": "registry:item",
       "title": "Fleek UI button snippets",
       "description": "Buttons — variants, sizes, icon buttons, htmx busy state"
     },
     {
       "name": "card",
-      "type": "registry:block",
+      "type": "registry:item",
       "title": "Fleek UI card snippets",
       "description": "Card — header/body/footer composition"
     },
     {
       "name": "form",
-      "type": "registry:block",
+      "type": "registry:item",
       "title": "Fleek UI form snippets",
       "description": "Form — labels, inputs, textarea, error + helper text"
     },
     {
       "name": "overlays",
-      "type": "registry:block",
+      "type": "registry:item",
       "title": "Fleek UI overlays snippets",
       "description": "Overlays — Alpine dropdown, modal, tooltip (x-data blocks)"
     }

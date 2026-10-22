@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "overlays",
-  "type": "registry:block",
+  "type": "registry:item",
   "title": "Fleek UI overlays snippets",
   "description": "Overlays — Alpine dropdown, modal, tooltip (x-data blocks)",
   "registryDependencies": [

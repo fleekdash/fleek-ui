@@ -1,7 +1,7 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "card",
-  "type": "registry:block",
+  "type": "registry:item",
   "title": "Fleek UI card snippets",
   "description": "Card — header/body/footer composition",
   "registryDependencies": [
